@@ -1,0 +1,9 @@
+{
+  "name": "ininclicktodial",
+  "title": "Interaction Center Click-To-Dial",
+  "id": "jid1-dl4EUxCe8ORocw",
+  "description": "Enables click-to-dial functionality for phone numbers found in pages.",
+  "author": "Interactive Intelligence Open Source",
+  "license": "MPL 2.0",
+  "version": "1.0"
+}
