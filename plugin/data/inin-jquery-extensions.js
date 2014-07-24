@@ -1,3 +1,5 @@
+ININ.$ = jQuery.noConflict(true);
+
 // Find all text nodes with text matching the provided RegExp object.
 ININ.$.fn.textNodesMatching = function (regexp) {
     return ININ.$(this).contents().filter(function () {
