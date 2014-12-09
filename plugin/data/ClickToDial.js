@@ -8,6 +8,8 @@ ININ.ClickToDial.DataKeys.DATA_KEY_IS_WEBCLIENT_RUNNING = 'inin_iswebclientrunni
 ININ.ClickToDial.Core = function () {
 
     var __phoneNumberRegex = /(^|\D)((?:(?:\+?1[\s\.-]?)?\(?[2-9]\d\d\)?[\s\.-]?)?[2-9]\d{2}[\s\.-]?\d{4})($|\D)/g;
+    var __commentRegex = /\/\*[\W\w]*\*\//;
+    var __cssRegex = /[#.][\w -]*\{[\W\w]*\}/;
 
     var dataKeys = ININ.ClickToDial.DataKeys;
     var isWebClientRunning = false;
@@ -65,6 +67,16 @@ ININ.ClickToDial.Core = function () {
                 var nodeText = ININ.$(this).text();
 
                 if( ININ.$(this).children().length > 0){
+                    return;
+                }
+
+                if(nodeText.match(__commentRegex) != null){
+                    //this number is in a comment, return
+                    return;
+                }
+
+                if(nodeText.match(__cssRegex) != null){
+                    //this number is in a css style, return
                     return;
                 }
 
